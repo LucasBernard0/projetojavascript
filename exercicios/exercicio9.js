@@ -9,3 +9,5 @@ function medianotas (nota1, nota2, nota3) {
         console.log('Reprovado')
     }
 }
+
+module.exports = { medianotas };
