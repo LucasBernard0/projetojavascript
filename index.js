@@ -192,6 +192,6 @@ app.post ('/api/exercicio13', (req, res) => {
 
 
 
-pp.listen(3000, () => {
+app.listen(3000, () => {
     console.log(`Servidor na porta 3000`)
 })
