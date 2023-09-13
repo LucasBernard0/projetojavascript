@@ -18,6 +18,10 @@ const {verificarTriangulo} = require ('./exercicios/exercicio15.js')
 const {calcularimposto} = require ('./exercicios/exercicio16.js')
 const {mediaaluno} = require ('./exercicios/exercicio17.js')
 const {custocarro} = require ('./exercicios/exercicio18.js')
+const {juroscapital} = require ('./exercicios/exercicio19.js')
+const {valorlIPI} = require ('./exercicios/exercicio20.js')
+
+
 
 
 // DESAFIOS
