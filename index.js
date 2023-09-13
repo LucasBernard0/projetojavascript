@@ -17,10 +17,7 @@ const {nmrMaior} = require ('./exercicios/exercicio14.js')
 const {verificarTriangulo} = require ('./exercicios/exercicio15.js')
 const {calcularimposto} = require ('./exercicios/exercicio16.js')
 const {mediaaluno} = require ('./exercicios/exercicio17.js')
-
-
-
-
+const {custocarro} = require ('./exercicios/exercicio18.js')
 
 
 // DESAFIOS
@@ -30,6 +27,8 @@ const { maior } = require ('./desafios/desafio2.js')
 
 const { anobissexto } = require ('./desafios/desafio4.js')
 const { mediaaluno } = require('./exercicios/exercicio17.js')
+const { juroscapital } = require('./exercicios/exercicio19.js')
+const { valorlIPI } = require('./exercicios/exercicio20.js')
 
 
 const app = express()
@@ -238,7 +237,7 @@ app.post("/api/desafio4", (req, res) => {
     const result = anobissexto(req.body.ano);
   
     res.json({
-      message: `anobissexto ${result}`,
+      message: `anobissexto ${result}`
     });
 });
 
@@ -248,7 +247,37 @@ app.post("/api/exercicio17", (req, res) => {
     const result = mediaaluno(req.body.nota1, req.body.nota2, req.body.nota3);
   
     res.json({
-      message: `mediaalunos ${result}`,
+      message: `mediaalunos ${result}`
+    });
+});
+
+// EXERCICIO 18
+
+app.post('/api/exercicio18', (req, res) => {
+    const result = custocarro(req.body.custofabrica);
+  
+    res.json({
+      message: `custocarro ${result}`
+    });
+});
+
+// EXERCICIO 19
+
+app.post('/api/ex19', (req, res) => {
+    const result = juroscapital(req.body.capital, req.body.taxa, req.body.tempo);
+  
+    res.json({
+      message: `juroscapital ${result}`
+    });
+});
+
+// EXERCICIO 20
+
+app.post('/api/ex20', (req, res) => {
+    const result = valorlIPI(req.body.porcentagem, req.body.vp1, req.body.qntp1, req.body.vp2, req.body.qntp2);
+  
+    res.json({
+      message: `IPI ${result}`
     });
 });
 
