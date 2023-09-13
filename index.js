@@ -13,6 +13,13 @@ const { imc } = require ('./exercicios/exercicio10')
 const { operacao } = require ('./exercicios/exercicio11.js')
 const { Nmrpositivonegativo } = require ('./exercicios/exercicio12.js')
 const { parimpar } = require ('./exercicios/exercicio13.js')
+const {nmrMaior} = require ('./exercicios/exercicio14.js')
+const {verificarTriangulo} = require ('./exercicios/exercicio15.js')
+const {calcularimposto} = require ('./exercicios/exercicio16.js')
+const {mediaaluno} = require ('./exercicios/exercicio17.js')
+
+
+
 
 
 
@@ -20,6 +27,10 @@ const { parimpar } = require ('./exercicios/exercicio13.js')
 const { idade } = require ('./desafios/desafio0.js')
 const { troca } = require ('./desafios/desafio1.js')
 const { maior } = require ('./desafios/desafio2.js')
+
+const { anobissexto } = require ('./desafios/desafio4.js')
+const { mediaaluno } = require('./exercicios/exercicio17.js')
+
 
 const app = express()
 app.use (express.json())
@@ -189,6 +200,57 @@ app.post ('/api/exercicio13', (req, res) => {
         message: `parimpar ${result}`
     })
 })
+
+// EXERCICIO 14
+
+app.post ('/api/exercicio14', (req, res) => {
+    const result = nmrMaior(req.body.num1, req.body.num2);
+    
+    res.json({
+        message: `nmrMaior ${result}`
+    });
+});
+
+// EXERCICIO 15
+
+app.post('/api/exercicio15', (req, res) => {
+    const result = verificarTriangulo(req.body.num1, req.body.num2, req.body.num3, req.body.h);
+  
+    res.json({
+      message: `verificarTriangulo ${result}`
+    });
+});
+
+// EXERCICIO 16
+
+app.post('/api/exercicio16', (req, res) => {
+    const result = calcularimposto(req.body.CPF, req.body.numdependentes, req.body.rendamensal);
+    res.json({
+        message: `calcularimposto ${result}`
+    });
+});
+
+// DESAFIO 3
+
+// DESAFIO 4 
+
+app.post("/api/desafio4", (req, res) => {
+    const result = anobissexto(req.body.ano);
+  
+    res.json({
+      message: `anobissexto ${result}`,
+    });
+});
+
+// EXERCICIO 17
+
+app.post("/api/exercicio17", (req, res) => {
+    const result = mediaaluno(req.body.nota1, req.body.nota2, req.body.nota3);
+  
+    res.json({
+      message: `mediaalunos ${result}`,
+    });
+});
 
 
 
