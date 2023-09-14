@@ -1,4 +1,4 @@
-function parimpar(num) {
+function parimpar (num) {
     if (num % 2 == 0) {
       return `${num}: Par`;
     } else {
