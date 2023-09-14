@@ -29,10 +29,10 @@ const port = 3000
 
 app.post('/api/exercicio1', (req, res) => {
     const result = somar (req.body.num1, req.body.num2)
-    
 
     res.json({
         message: `resultado: ${result}`
+        
     })
 })
 
@@ -41,7 +41,6 @@ app.post('/api/exercicio1', (req, res) => {
 app.post('/api/exercicio2', (req, res) => {
     const result = salario (req.body.vh, req.body.qh)
     
-
     res.json({
         message: `salario: ${result}`
     })
@@ -51,7 +50,7 @@ app.post('/api/exercicio2', (req, res) => {
 
 app.post('/api/exercicio3', (req, res) => {
     const result = mediapesos (req.body.peso1, req.body.peso2, req.body.peso3, req.body.peso4, req.body.peso5)
-
+    
     res.json({
         message: `mediapesos: ${result}`
     })
