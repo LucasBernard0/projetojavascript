@@ -1,0 +1,19 @@
+const ServicoExercicio = require("../services/exercicio1")
+
+const servico = new ServicoExercicio()
+
+class ControllerExercicio {
+    somar(req, res){
+        try {
+            const result = servico.somar(req.body.num1, req.body.num2)
+            res.status(200).json({
+                message: `resultado: ${result}`
+            })
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: "Não deu bão" })
+        }
+    }
+}
+
+module.exports = ControllerExercicio

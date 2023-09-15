@@ -1,6 +1,7 @@
 // EXERCICIOS
 const express = require('express')
-const { somar } = require ('./exercicios/exercicio1.js')
+const router = require('./src/routes/exercicio1.js')
+// const { somar } = require ('./exercicios/exercicio1.js')
 const { salario } = require ('./exercicios/exercicio2.js')
 const { mediapesos } = require ('./exercicios/exercicio3.js')
 const { temperatura } = require ('./exercicios/exercicio4.js')
@@ -13,7 +14,7 @@ const { imc } = require ('./exercicios/exercicio10')
 const { operacao } = require ('./exercicios/exercicio11.js')
 const { Nmrpositivonegativo } = require ('./exercicios/exercicio12.js')
 const { parimpar } = require ('./exercicios/exercicio13.js')
-const {nmrMaior} = require ('./exercicios/exercicio14.js')
+const {nmrmaior} = require ('./exercicios/exercicio14.js')
 const {verificarTriangulo} = require ('./exercicios/exercicio15.js')
 const {calcularimposto} = require ('./exercicios/exercicio16.js')
 const {mediaaluno} = require ('./exercicios/exercicio17.js')
@@ -28,11 +29,8 @@ const {valorlIPI} = require ('./exercicios/exercicio20.js')
 const { idade } = require ('./desafios/desafio0.js')
 const { troca } = require ('./desafios/desafio1.js')
 const { maior } = require ('./desafios/desafio2.js')
-
 const { anobissexto } = require ('./desafios/desafio4.js')
-const { mediaaluno } = require('./exercicios/exercicio17.js')
-const { juroscapital } = require('./exercicios/exercicio19.js')
-const { valorlIPI } = require('./exercicios/exercicio20.js')
+
 
 
 const app = express()
@@ -42,22 +40,33 @@ const port = 3000
 // EXERCICIO 1
 
 app.post('/api/exercicio1', (req, res) => {
-    const result = somar (req.body.num1, req.body.num2)
-
-    res.json({
-        message: `resultado: ${result}`
-        
-    })
+    try {
+        const result = somar (req.body.num1, req.body.num2)
+        res.json({
+            message: `resultado: ${result}`
+        })  
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: "Não deu bão",
+        })
+    }
 })
 
 // EXERCICIO 2
 
 app.post('/api/exercicio2', (req, res) => {
-    const result = salario (req.body.vh, req.body.qh)
-    
-    res.json({
-        message: `salario: ${result}`
-    })
+    try {
+        const result = salario (req.body.vh, req.body.qh)
+        res.json({
+            message: `salario: ${result}`
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: "Não deu bão",
+        })
+    }
 })
 
 // EXERCICIO 3
@@ -206,10 +215,10 @@ app.post ('/api/exercicio13', (req, res) => {
 // EXERCICIO 14
 
 app.post ('/api/exercicio14', (req, res) => {
-    const result = nmrMaior(req.body.num1, req.body.num2);
+    const result = nmrmaior(req.body.num1, req.body.num2);
     
     res.json({
-        message: `nmrMaior ${result}`
+        message: `nmrmaior ${result}`
     });
 });
 
